@@ -1,19 +1,14 @@
-const { Telegraf } = require('telegraf');
 
-// Replace 'YOUR_BOT_TOKEN' with your actual bot token
-const bot = new Telegraf('7128024687:AAGvDiRYy_ynG5Pr6tGRz-Pi9HyoopPUm6M');
+const { Telegraf } = require('telegraf')
+const { message } = require('telegraf/filters')
 
-// Listen for messages
-bot.on('text', (ctx) => {
-  // Check if the message text is 'Hello'
-  if (ctx.message.text.toLowerCase() === 'hello') {
-    // Reply with 'Hi'
-    ctx.reply('Hi');
-  }
-});
+const bot = new Telegraf('7128024687:AAGvDiRYy_ynG5Pr6tGRz-Pi9HyoopPUm6M')
+bot.start((ctx) => ctx.reply('Welcome'))
+bot.help((ctx) => ctx.reply('Send me a sticker'))
+bot.on(message('sticker'), (ctx) => ctx.reply('👍'))
+bot.hears('hi', (ctx) => ctx.reply('Hey there'))
+bot.launch()
 
-// Launch the bot
-bot.launch();
-
-// Log when the bot is started
-console.log('Bot is up and running');
+// Enable graceful stop
+process.once('SIGINT', () => bot.stop('SIGINT'))
+process.once('SIGTERM', () => bot.stop('SIGTERM'))
