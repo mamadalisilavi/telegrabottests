@@ -8,7 +8,7 @@ const commands = [
     { command: '/about', description: 'About the bot' },
   ];
 const bot = new Telegraf('7128024687:AAGSROlHxA1F5eshJNWwm_2N1n4VaPueS28')
-(async () => {
+async () => {
     // Set the bot commands
     await bot.telegram.setMyCommands(commands);
   
@@ -18,7 +18,8 @@ const bot = new Telegraf('7128024687:AAGSROlHxA1F5eshJNWwm_2N1n4VaPueS28')
     });
   
     console.log('Commands and chat menu button set successfully.');
-  })();
+  }
+
 bot.start((ctx) => ctx.reply('Welcome'))
 // bot.on(message('sticker'), (ctx) => ctx.reply('👍'))
 bot.on(message("document"),(msg)=>{
