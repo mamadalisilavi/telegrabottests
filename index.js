@@ -21,14 +21,15 @@ bot.command('newfile', (ctx) => {
         ctx.reply('اوکی لطفا عرض فایل را وارد کنید')
        
         bot.on(message("text"),(msg)=>{
-            const width =  msg.update.message.text
-            console.log(msg)
+           // const width =  msg.update.message.text
+          //  console.log(msg)
             ctx.reply('اوکی لطفا طول فایل را وارد کنید')
             bot.on(message("text"),(msg)=>{
-                const he =  msg.update.message.text
-                ctx.reply(`عرض :${width} و  طول:${he}}`)
-                console.log(`عرض :${width} و  طول:${he}}`)
-                msg.forwardMessage(1312290405, msg.update.message.message_id)
+                ctx.reply('اوکی ')
+              //  const he =  msg.update.message.text
+                // ctx.reply(`عرض :${width} و  طول:${he}}`)
+                // console.log(`عرض :${width} و  طول:${he}}`)
+                // msg.forwardMessage(1312290405, msg.update.message.message_id)
             })
         })
     })
