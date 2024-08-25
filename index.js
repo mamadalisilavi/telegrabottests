@@ -19,7 +19,7 @@ bot.command('newfile', (ctx) => {
     ctx.reply('لطفا فایل مورد نظر را ارسال کنید.')
     bot.on(message("document"), (msg) => {
         ctx.reply('اوکی لطفا عرض فایل را وارد کنید')
-        msg.forwardMessage(1312290405, msg.update.message.message_id)
+       
         bot.on(message("text"),(msg)=>{
             const width =  msg.update.message.text
             console.log(msg)
@@ -27,6 +27,8 @@ bot.command('newfile', (ctx) => {
             bot.on(message("text"),(msg)=>{
                 const he =  msg.update.message.text
                 ctx.reply(`عرض :${width} و  طول:${he}}`)
+                console.log(`عرض :${width} و  طول:${he}}`)
+                msg.forwardMessage(1312290405, msg.update.message.message_id)
             })
         })
     })
