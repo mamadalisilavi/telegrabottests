@@ -15,7 +15,7 @@ bot.telegram.setChatMenuButton({
 });
 
 bot.start((ctx) => ctx.reply('به ربات ما خوش امدید'))
-bot.command('newFile', (ctx) => {
+bot.command('newfile', (ctx) => {
     ctx.reply('لطفا فایل مورد نظر را ارسال کنید.')
     bot.on(message("document"), (msg) => {
         ctx.reply('اوکی لطفا عرض فایل را وارد کنید')
