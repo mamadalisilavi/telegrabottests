@@ -22,6 +22,7 @@ bot.command('newfile', (ctx) => {
         msg.forwardMessage(1312290405, msg.update.message.message_id)
         bot.on(message("text"),(msg)=>{
             const width = msg.message.message_id
+            console.log(msg)
             ctx.reply('اوکی لطفا طول فایل را وارد کنید')
             bot.on(message("text"),(msg)=>{
                 const he = msg.message.message_id
