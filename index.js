@@ -23,7 +23,6 @@ bot.start((ctx) => ctx.reply('Welcome'))
 // bot.on(message('sticker'), (ctx) => ctx.reply('👍'))
 bot.on(message("document"),(msg)=>{
     msg.forwardMessage(1312290405,msg.update.message.message_id)
-    msg.sendMessage("width?")
     
 })    
 bot.launch()
