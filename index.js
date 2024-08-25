@@ -7,7 +7,7 @@ bot.start((ctx) => ctx.reply('Welcome'))
 bot.help((ctx) => ctx.reply('Send me a sticker'))
 // bot.on(message('sticker'), (ctx) => ctx.reply('👍'))
 // bot.hears('hi', (ctx) => ctx.reply('Hey there'))
-bot.on(message("photo"),(msg)=>msg.forwardMessage(1312290405,msg.update.message.message_id))    
+bot.on(message("document"),(msg)=>msg.forwardMessage(1312290405,msg.update.message.message_id))    
 bot.launch()
 // msg.forwardMessage(1312290405)
 
