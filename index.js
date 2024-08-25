@@ -5,7 +5,7 @@ const bot = new Telegraf('7128024687:AAGSROlHxA1F5eshJNWwm_2N1n4VaPueS28')
 const commands = [
     { command: '/start', description: 'Start the bot' },
     { command: '/help', description: 'Get help' },
-    { command: '/newFile', description: 'jadid' },
+    { command: '/newfile', description: 'ثبت سفارش جدید' },
 ];
 // Set the bot commands
 bot.telegram.setMyCommands(commands);
