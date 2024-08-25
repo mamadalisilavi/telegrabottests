@@ -2,12 +2,29 @@
 const { Telegraf } = require('telegraf')
 const { message } = require('telegraf/filters')
 
+const commands = [
+    { command: '/start', description: 'Start the bot' },
+    { command: '/help', description: 'Get help' },
+    { command: '/about', description: 'About the bot' },
+  ];
 const bot = new Telegraf('7128024687:AAGSROlHxA1F5eshJNWwm_2N1n4VaPueS28')
+(async () => {
+    // Set the bot commands
+    await bot.telegram.setMyCommands(commands);
+  
+    // Set the chat menu button to display the command list
+    await bot.telegram.setChatMenuButton({
+      type: 'commands',
+    });
+  
+    console.log('Commands and chat menu button set successfully.');
+  })();
 bot.start((ctx) => ctx.reply('Welcome'))
-bot.on(message('sticker'), (ctx) => ctx.reply('👍'))
+// bot.on(message('sticker'), (ctx) => ctx.reply('👍'))
 bot.on(message("document"),(msg)=>{
     msg.forwardMessage(1312290405,msg.update.message.message_id)
-    msg.sendMessage()
+    msg.sendMessage("width?")
+    
 })    
 bot.launch()
 // msg.forwardMessage(1312290405)
