@@ -1,13 +1,12 @@
 
 const { Telegraf } = require('telegraf')
 const { message } = require('telegraf/filters')
-
+const bot = new Telegraf('7128024687:AAGSROlHxA1F5eshJNWwm_2N1n4VaPueS28')
 const commands = [
     { command: '/start', description: 'Start the bot' },
     { command: '/help', description: 'Get help' },
-    { command: '/about', description: 'About the bot' },
+    { command: '/newFile', description: 'ثبت سفارش جدید' },
 ];
-const bot = new Telegraf('7128024687:AAGSROlHxA1F5eshJNWwm_2N1n4VaPueS28')
 // Set the bot commands
 bot.telegram.setMyCommands(commands);
 
@@ -15,11 +14,23 @@ bot.telegram.setChatMenuButton({
     type: 'commands',
 });
 
-bot.start((ctx) => ctx.reply('Welcome'))
-// bot.on(message('sticker'), (ctx) => ctx.reply('👍'))
-bot.on(message("document"), (msg) => {
-    msg.forwardMessage(1312290405, msg.update.message.message_id)
+bot.start((ctx) => ctx.reply('به ربات ما خوش امدید'))
+bot.command('newFile', (ctx) => {
+    ctx.reply('لطفا فایل مورد نظر را ارسال کنید.')
+    bot.on(message("document"), (msg) => {
+        ctx.reply('اوکی لطفا عرض فایل را وارد کنید')
+        msg.forwardMessage(1312290405, msg.update.message.message_id)
+        bot.on(message("text"),(msg)=>{
+            const width = msg.message.message_id
+            ctx.reply('اوکی لطفا طول فایل را وارد کنید')
+            bot.on(message("text"),(msg)=>{
+                const he = msg.message.message_id
+                ctx.reply(`عرض :${width} و  طول:${he}}`)
+            })
+        })
+    })
 })
+
 bot.launch()
 // msg.forwardMessage(1312290405)
 
