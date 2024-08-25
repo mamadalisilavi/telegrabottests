@@ -21,11 +21,11 @@ bot.command('newfile', (ctx) => {
         ctx.reply('اوکی لطفا عرض فایل را وارد کنید')
         msg.forwardMessage(1312290405, msg.update.message.message_id)
         bot.on(message("text"),(msg)=>{
-            const width = msg.message.message_id
+            const width =  msg.update.message.text
             console.log(msg)
             ctx.reply('اوکی لطفا طول فایل را وارد کنید')
             bot.on(message("text"),(msg)=>{
-                const he = msg.message.message_id
+                const he =  msg.update.message.text
                 ctx.reply(`عرض :${width} و  طول:${he}}`)
             })
         })
