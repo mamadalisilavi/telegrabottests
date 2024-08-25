@@ -11,7 +11,6 @@ const bot = new Telegraf('7128024687:AAGSROlHxA1F5eshJNWwm_2N1n4VaPueS28')
 // Set the bot commands
 bot.telegram.setMyCommands(commands);
 
-// Set the chat menu button to display the command list
 bot.telegram.setChatMenuButton({
     type: 'commands',
 });
@@ -20,7 +19,6 @@ bot.start((ctx) => ctx.reply('Welcome'))
 // bot.on(message('sticker'), (ctx) => ctx.reply('👍'))
 bot.on(message("document"), (msg) => {
     msg.forwardMessage(1312290405, msg.update.message.message_id)
-
 })
 bot.launch()
 // msg.forwardMessage(1312290405)
