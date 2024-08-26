@@ -1,9 +1,8 @@
 
 const { Telegraf } = require('telegraf')
 const { message } = require('telegraf/filters')
-import { createServer } from "http";
+const { createServer } = require("http")
 const bot = new Telegraf('7128024687:AAGSROlHxA1F5eshJNWwm_2N1n4VaPueS28')
-
 
 const commands = [
     { command: '/start', description: 'Start the bot' },
