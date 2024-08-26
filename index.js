@@ -1,7 +1,10 @@
 
 const { Telegraf } = require('telegraf')
 const { message } = require('telegraf/filters')
+import { createServer } from "http";
 const bot = new Telegraf('7128024687:AAGSROlHxA1F5eshJNWwm_2N1n4VaPueS28')
+
+
 const commands = [
     { command: '/start', description: 'Start the bot' },
     { command: '/help', description: 'Get help' },
@@ -34,8 +37,8 @@ bot.command('newfile', (ctx) => {
         })
     })
 })
-
-bot.launch()
+bot.launch() 
+createServer(await bot.createWebhook({ domain: "https://telegrabottests.vercel.app" })).listen(3000);
 // msg.forwardMessage(1312290405)
 
 // message_id: 239,
